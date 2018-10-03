@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="logo_image_width_height">100dp</dimen>
+    <dimen name="card_view_padding">10dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+</resources>

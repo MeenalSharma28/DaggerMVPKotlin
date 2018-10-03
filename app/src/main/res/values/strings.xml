@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DaggerMVP-Kotlin</string>
+    <string name="logo_image">Country Logo Image</string>
+</resources>
