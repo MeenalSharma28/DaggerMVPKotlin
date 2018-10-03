@@ -68,7 +68,7 @@ class CountryListActivity : AppCompatActivity(), CountryListView {
     }
 
     override fun onFailure() {
-        Toast.makeText(this, "Connectivity Issue", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.error_network_connectivity), Toast.LENGTH_SHORT).show()
         dismissProgressDialog()
     }
 
