@@ -1,5 +1,6 @@
 package com.app.dagger.mvp.kotlin.module
 
+import com.app.dagger.mvp.kotlin.interfaces.CountryListView
 import com.app.dagger.mvp.kotlin.network.ApiInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -9,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class CountryListPresenterModule {
+class CountryListPresenterModule(countryListView: CountryListView) {
     private val mBaseUrl = "https://restcountries.eu/rest/v2/"
 
     @Provides

@@ -2,9 +2,9 @@ package com.app.dagger.demo.module
 
 import android.app.Activity
 import android.content.Context
+import com.app.dagger.mvp.kotlin.interfaces.ActivityContext
 import dagger.Module
 import dagger.Provides
-import javax.inject.Named
 
 @Module
 class ActivityModule {
@@ -14,7 +14,7 @@ class ActivityModule {
         this.context = context
     }
 
-    @Named("activity_context")
+    @ActivityContext
     @Provides
     fun getActivityContext(): Context {
         return context

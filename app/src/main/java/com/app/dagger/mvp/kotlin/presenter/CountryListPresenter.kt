@@ -7,14 +7,7 @@ import com.app.dagger.mvp.kotlin.network.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Response
 
-class CountryListPresenter {
-
-    var countryListView: CountryListView? = null
-
-
-    fun attach(countryListView: CountryListView) {
-        this.countryListView = countryListView
-    }
+class CountryListPresenter(var countryListView: CountryListView?) {
 
     fun getCountryData() {
 
