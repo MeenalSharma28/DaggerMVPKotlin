@@ -8,15 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.ahmadrosid.svgloader.SvgLoader
 import com.app.dagger.mvp.kotlin.R
 import com.app.dagger.mvp.kotlin.activity.CountryListActivity
 import com.app.dagger.mvp.kotlin.model.CountryModel
 
 
-class CountryListAdapter : RecyclerView.Adapter<CountryListAdapter.CountryListViewHolder>() {
+class CountryListAdapter(var context: Context) : RecyclerView.Adapter<CountryListAdapter.CountryListViewHolder>() {
 
     var countryList: List<CountryModel> = ArrayList()
-    lateinit var context: Context
     lateinit var activity: Activity
 
 
@@ -32,7 +32,7 @@ class CountryListAdapter : RecyclerView.Adapter<CountryListAdapter.CountryListVi
         val countryData = countryList.get(position)
         holder.textView.text = countryData.name
 
-        //loadImage(countryData.flag, holder.imageView)
+        loadImage(countryData.flag, holder.imageView)
 
     }
 
@@ -48,12 +48,12 @@ class CountryListAdapter : RecyclerView.Adapter<CountryListAdapter.CountryListVi
     /**
      * Method to load SVG logo image using library
      */
-//    private fun loadImage(urlString: String?, imageView: ImageView) {
-////        SvgLoader.pluck()
-////                .with(activity)
-////                .setPlaceHolder(R.mipmap.ic_launcher, R.mipmap.ic_launcher)
-////                .load(urlString, imageView)
-//    }
+    private fun loadImage(urlString: String?, imageView: ImageView) {
+        SvgLoader.pluck()
+                .with(context as Activity?)
+                .setPlaceHolder(R.mipmap.ic_launcher, R.mipmap.ic_launcher)
+                .load(urlString, imageView)
+    }
 
     fun setContext(context: Context, countryListActivity1: CountryListActivity) {
         this.context = context
@@ -62,9 +62,8 @@ class CountryListAdapter : RecyclerView.Adapter<CountryListAdapter.CountryListVi
 
 
     inner class CountryListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textView: TextView = itemView.findViewById(R.id.tvName)
-        //var imageView: ImageView = itemView.findViewById(R.id.ivLogo)
-
+        var textView: TextView = itemView.findViewById(R.id.tvCountryName)
+        var imageView: ImageView = itemView.findViewById(R.id.ivLogo)
     }
 }
 
